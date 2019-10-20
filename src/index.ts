@@ -1,18 +1,46 @@
 import dotenv from 'dotenv';
-import express from 'express';
+import fs from 'fs-extra';
+import http from 'http';
+import https from 'https';
+
+import app from './app';
 
 dotenv.config();
 
-const PORT = process.env.PORT || 8080;
+const { HOSTNAME, PORT } = process.env;
 
-const app = express();
+const configs = {
+  // You may need sudo to run on port 443
+  // production: { ssl: true, port: 443, hostname: HOSTNAME },
+  production: { ssl: false, port: PORT, hostname: HOSTNAME },
+  development: { ssl: false, port: PORT, hostname: HOSTNAME }
+};
 
-app.get('/', (_, res) => {
-  res.send(
-    '<h2>NodeJS Server Side Starter Boilerplate</h2><p>Basic NodeJS Server Side Boilerplate With Typescript Support.</p>'
-  );
-});
+const environment = process.env.NODE_ENV || 'production';
+const { ssl, port, hostname } = configs[environment];
 
-app.listen(PORT, () => {
-  console.log(`server is listening at port: ${PORT}`);
-});
+(() => {
+  try {
+    let server: http.Server;
+
+    if (ssl) {
+      server = https.createServer(
+        {
+          key: fs.readFileSync(`.ssl/server.key`),
+          cert: fs.readFileSync(`.ssl/server.crt`)
+        },
+        app
+      );
+    } else {
+      server = http.createServer(app);
+    }
+
+    server.listen({ port }, () => {
+      console.log(
+        `server running at: http${ssl ? 's' : ''}://${hostname}:${port}/`
+      );
+    });
+  } catch (err) {
+    console.error(`new Error: ${err}`);
+  }
+})();

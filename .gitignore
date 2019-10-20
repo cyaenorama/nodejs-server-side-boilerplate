@@ -7,10 +7,12 @@ node_modules
 # production
 build
 
-# dotenv environment variables file
+# .env environment variables file
 .env
-.env.json
-.env.js
+.env.*
+
+# ssl directory
+.ssl
 
 # Coverage directory used by tools like istanbul
 coverage
