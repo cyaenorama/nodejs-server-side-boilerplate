@@ -4,7 +4,7 @@ const stage2 = [
   '@babel/plugin-proposal-function-sent',
   '@babel/plugin-proposal-export-namespace-from',
   '@babel/plugin-proposal-numeric-separator',
-  '@babel/plugin-proposal-throw-expressions'
+  '@babel/plugin-proposal-throw-expressions',
 ];
 
 // Stage 3
@@ -12,7 +12,7 @@ const stage3 = [
   '@babel/plugin-syntax-dynamic-import',
   '@babel/plugin-syntax-import-meta',
   ['@babel/plugin-proposal-class-properties', { loose: true }],
-  '@babel/plugin-proposal-json-strings'
+  '@babel/plugin-proposal-json-strings',
 ];
 
 /* Plugins run before Presets. */

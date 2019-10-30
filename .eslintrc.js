@@ -8,14 +8,14 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
-    'prettier/unicorn'
+    'prettier/unicorn',
   ],
 
   env: {
     node: true,
     commonjs: true,
     es2020: true,
-    jest: true
+    jest: true,
   },
 
   parser: 'babel-eslint',
@@ -25,8 +25,8 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       impliedStrict: true,
-      globalReturn: false
-    }
+      globalReturn: false,
+    },
   },
 
   plugins: [],
@@ -39,16 +39,16 @@ module.exports = {
     'no-param-reassign': 'off',
     'prefer-destructuring': 'off',
     'unicorn/catch-error-name': 'off',
-    'unicorn/prevent-abbreviations': 'off'
+    'unicorn/prevent-abbreviations': 'off',
   },
 
   settings: {
     'import/extensions': ['.js', '.ts'],
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts']
-      }
-    }
+        extensions: ['.js', '.ts'],
+      },
+    },
   },
 
   overrides: [
@@ -62,9 +62,9 @@ module.exports = {
         sourceType: 'module',
         ecmaFeatures: {
           impliedStrict: true,
-          globalReturn: false
+          globalReturn: false,
         },
-        project: './tsconfig.json'
+        project: './tsconfig.json',
       },
 
       plugins: ['@typescript-eslint'],
@@ -82,8 +82,8 @@ module.exports = {
           'warn',
           {
             allowExpressions: true,
-            allowTypedFunctionExpressions: true
-          }
+            allowTypedFunctionExpressions: true,
+          },
         ],
         '@typescript-eslint/interface-name-prefix': 'error',
         '@typescript-eslint/member-delimiter-style': 'error',
@@ -104,8 +104,8 @@ module.exports = {
           {
             args: 'none',
             argsIgnorePattern: '^_',
-            ignoreRestSiblings: true
-          }
+            ignoreRestSiblings: true,
+          },
         ],
         '@typescript-eslint/no-use-before-define': [
           'warn',
@@ -113,8 +113,8 @@ module.exports = {
             functions: false,
             classes: false,
             variables: false,
-            typedefs: false
-          }
+            typedefs: false,
+          },
         ],
         '@typescript-eslint/no-useless-constructor': 'warn',
         '@typescript-eslint/no-var-requires': 'error',
@@ -153,20 +153,20 @@ module.exports = {
         '@typescript-eslint/member-delimiter-style': 'off',
         '@typescript-eslint/no-extra-parens': 'off',
         '@typescript-eslint/semi': 'off',
-        '@typescript-eslint/type-annotation-spacing': 'off'
+        '@typescript-eslint/type-annotation-spacing': 'off',
       },
 
       settings: {
         'import/extensions': ['.ts', '.d.ts', '.js'],
         'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.d.ts']
+          '@typescript-eslint/parser': ['.ts', '.d.ts'],
         },
         'import/resolver': {
           node: {
-            extensions: ['.ts', '.d.ts', '.js']
-          }
-        }
-      }
-    }
-  ]
+            extensions: ['.ts', '.d.ts', '.js'],
+          },
+        },
+      },
+    },
+  ],
 };
