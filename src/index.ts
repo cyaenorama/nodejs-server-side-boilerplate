@@ -13,7 +13,7 @@ const configs = {
   // You may need sudo to run on port 443
   // production: { ssl: true, port: 443, hostname: HOSTNAME },
   production: { ssl: false, port: PORT, hostname: HOSTNAME },
-  development: { ssl: false, port: PORT, hostname: HOSTNAME },
+  development: { ssl: false, port: PORT, hostname: HOSTNAME }
 };
 
 const environment = process.env.NODE_ENV || 'production';
@@ -27,9 +27,9 @@ const { ssl, port, hostname } = configs[environment];
       server = https.createServer(
         {
           key: fs.readFileSync(`.ssl/server.key`),
-          cert: fs.readFileSync(`.ssl/server.crt`),
+          cert: fs.readFileSync(`.ssl/server.crt`)
         },
-        app,
+        app
       );
     } else {
       server = http.createServer(app);
@@ -37,7 +37,7 @@ const { ssl, port, hostname } = configs[environment];
 
     server.listen({ port }, () => {
       console.log(
-        `server running at: http${ssl ? 's' : ''}://${hostname}:${port}/`,
+        `server running at: http${ssl ? 's' : ''}://${hostname}:${port}/`
       );
     });
   } catch (err) {
