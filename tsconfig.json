@@ -5,7 +5,7 @@
     "lib": [
       "es2015"
     ],
-    "allowJs": false,
+    "allowJs": true,
     "sourceMap": true,
     "outDir": "./build",
     "rootDir": "./",
