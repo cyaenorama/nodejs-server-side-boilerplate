@@ -32,13 +32,17 @@ module.exports = {
   plugins: [],
 
   rules: {
+    'class-methods-use-this': 'warn',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'import/no-extraneous-dependencies': 'warn',
     'import/prefer-default-export': 'off',
+    'jest/no-test-callback': 'warn',
     'no-console': 'off',
     'no-param-reassign': 'off',
     'prefer-destructuring': 'off',
+    'promise/param-names': 'warn',
     'unicorn/catch-error-name': 'off',
+    'unicorn/filename-case': 'off',
     'unicorn/prevent-abbreviations': 'off'
   },
 
@@ -64,13 +68,13 @@ module.exports = {
           impliedStrict: true,
           globalReturn: false
         },
-        project: './tsconfig.json'
+        project: ['./tsconfig.json', './tsconfig.test.json']
       },
 
       plugins: ['@typescript-eslint'],
 
       rules: {
-        /* @typescript-eslint recommended rules */
+        /* @typescript-eslint rules */
         '@typescript-eslint/adjacent-overload-signatures': 'error',
         '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/ban-ts-ignore': 'error',
@@ -78,44 +82,23 @@ module.exports = {
         '@typescript-eslint/camelcase': 'error',
         '@typescript-eslint/class-name-casing': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',
-        '@typescript-eslint/explicit-function-return-type': [
-          'warn',
-          {
-            allowExpressions: true,
-            allowTypedFunctionExpressions: true
-          }
-        ],
-        '@typescript-eslint/interface-name-prefix': 'error',
+        '@typescript-eslint/explicit-function-return-type': 'error',
+        '@typescript-eslint/interface-name-prefix': 'warn',
         '@typescript-eslint/member-delimiter-style': 'error',
         '@typescript-eslint/no-array-constructor': 'error',
         '@typescript-eslint/no-empty-function': 'error',
         '@typescript-eslint/no-empty-interface': 'error',
         '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/no-for-in-array': 'off',
-        '@typescript-eslint/no-inferrable-types': 'error',
+        '@typescript-eslint/no-inferrable-types': 'warn',
         '@typescript-eslint/no-misused-new': 'error',
         '@typescript-eslint/no-misused-promises': 'error',
         '@typescript-eslint/no-namespace': 'error',
         '@typescript-eslint/no-non-null-assertion': 'warn',
         '@typescript-eslint/no-this-alias': 'error',
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-        '@typescript-eslint/no-unused-vars': [
-          'warn',
-          {
-            args: 'none',
-            argsIgnorePattern: '^_',
-            ignoreRestSiblings: true
-          }
-        ],
-        '@typescript-eslint/no-use-before-define': [
-          'warn',
-          {
-            functions: false,
-            classes: false,
-            variables: false,
-            typedefs: false
-          }
-        ],
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-use-before-define': 'error',
         '@typescript-eslint/no-useless-constructor': 'warn',
         '@typescript-eslint/no-var-requires': 'error',
         '@typescript-eslint/prefer-includes': 'error',
