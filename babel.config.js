@@ -18,7 +18,14 @@ const stage3 = [
 /* Plugins run before Presets. */
 
 /* Plugin ordering is first to last. */
-const plugins = [...stage2, ...stage3, '@babel/plugin-transform-runtime'];
+const plugins = [
+  ...stage2,
+  ...stage3,
+  [
+    '@babel/plugin-transform-runtime',
+    process.env.NODE_ENV === 'test' ? { helpers: false } : {}
+  ]
+];
 
 /* Preset ordering is reversed (last to first). */
 const presets = ['@babel/preset-env'];

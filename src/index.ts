@@ -19,7 +19,7 @@ const configs = {
 const environment = process.env.NODE_ENV || 'production';
 const { ssl, port, hostname } = configs[environment];
 
-(() => {
+((): void => {
   try {
     let server: http.Server;
 

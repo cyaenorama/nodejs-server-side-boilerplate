@@ -6,7 +6,7 @@
       "es2015"
     ],
     "allowJs": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "./build",
     "rootDir": "./",
     "newLine": "LF",
@@ -48,6 +48,9 @@
   "exclude": [
     "node_modules",
     "build",
+    "__tests__",
+    "__mocks__",
+    "scripts",
     "babel.config.js",
     "jest.config.js",
     "commitlint.config.js"
